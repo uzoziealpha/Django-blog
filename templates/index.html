@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <body>
+{% extends 'base.html' %}
+{% block content %}
+      <div class='container'>
       <!-- For loop-->
      {%  for post in post_list %}
-     <a href="{% url 'blog_view' post.slug %}"><h2>{{ post.title }}</h2></a>    
-      <p> {{ post.author }} </p>    
+      <!-- Adding margins with m-3-->
+       <div class='card m-3' >
+           <div class="card-body">
+             <h2 class="card-title">
+                {{post.title}}
+             </h2>
+    <p class='card-text'>
+        <!--  Allows \ slice to choose how many charcters we need-->
+         {{post.content | slice:"500"}}
+    <p>
+    <p class='card-text'>
+      Author: {{post.author | title}}
+    </p>
+        <a class='btn btn-primary' href="{% url 'blog_view' post.slug %}">Read More</a>    
+        </div>
+      </div>
      {% endfor  %}
-  </body>
-</html>
+    </div>
+{% endblock content %}

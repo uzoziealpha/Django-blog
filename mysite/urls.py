@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # we add url of the blog app
     path('admin/', admin.site.urls),
-    path('', include('blog.urls'))
+    path('', include('blog.urls')),
+    path('translate/', include('translator.urls'))
 
 ]
