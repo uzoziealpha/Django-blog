@@ -1,9 +1,12 @@
 from django.shortcuts import render
+#import POST
 from .models import Post
+
+from django.views import generic
 
 
 # Create your views here.
 
-class BlogView:
+class BlogView(generic.DetailView):
     model = Post
-    tempplate_name = 'blog.html'
+    template_name = 'blog.html'
