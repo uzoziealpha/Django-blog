@@ -20,3 +20,7 @@ class Post(models.Model):
     author = models.ForeignKey(to=User, on_delete=models.CASCADE)
     # Drop down list of publish or Draft
     status = models.IntegerField(choices=STATUS, default=0)
+
+#to change the data entered from post to title 
+    def __str__(self):
+        return self.title
